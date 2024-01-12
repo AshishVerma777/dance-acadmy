@@ -1,0 +1,17 @@
+1. for course table
+create table mstcourse
+(
+ctgid int,
+courseid int primary key,
+coursenm varchar(25),
+duration int,
+fees decimal,
+coursedetail varchar(200),
+courseimg varchar(40),    
+FOREIGN KEY(ctgid) REFERENCES mstcategory(ctgid))
+-----------------------------------------------
+2. for course list
+select b.ctgnm,a.coursenm,a.duration,a.fees,a.courseimg
+from mstcourse as a
+inner join mstcategory as b on a.ctgid=b.ctgid
+order by b.ctgnm,a.coursenm
